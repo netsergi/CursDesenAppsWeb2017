@@ -1,0 +1,13 @@
+	div.cities {
+    		border: 1px solid black;
+    		color: white;
+    		margin: 20px 0 20px 0;
+    		padding: 20px; 
+    				}	
+
+    span.pais { 
+    		color: red;text-shadow: 1px 1px 1px darkred;font-weight: bold; 
+			margin: 5px;
+			padding: 3px;
+			border: 1px solid white; 
+    		  }	
