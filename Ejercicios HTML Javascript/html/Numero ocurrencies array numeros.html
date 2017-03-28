@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    #demo2 { width: 100%; }
+    #demo3 { width: 35%; }
+    body { padding: 10px; }
+</style>
+<body>
+
+<h1>JavaScript Math</h1>
+
+<button id="boton" onclick="random()">Numero aleatori</button>
+<p id="demo" class="w3-badge w3-xlarge w3-blue"></p>
+<p id="demo2"  class="w3-card-2 w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue"></p>
+<p id="demo7"  class="w3-card-2 w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue"></p>
+<p id="demo3"  class="w3-card-2 w3-panel w3-sand w3-leftbar w3-rightbar w3-border-blue"></p>
+<p id="demo4"  class="w3-card-2 w3-panel w3-sand w3-leftbar w3-rightbar w3-border-blue"></p>
+<p id="demo5"  class="w3-card-2 w3-panel w3-sand w3-leftbar w3-rightbar w3-border-blue">1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |</p>
+<p id="demo6"  class="w3-card-2 w3-panel w3-sand w3-leftbar w3-rightbar w3-border-blue"></p>
+
+<script>
+var nums = [];
+var numsdata = [];
+var numsrep = Array(10).fill(0);
+var intents = 0;
+function random()
+{
+    var num = Math.floor(Math.random() * 9) + 1;
+    var tiempo = new Date();
+    nums.unshift(num);
+    numsrep[num-1] +=1; 
+    document.getElementById("demo3").innerHTML = "Intents: " +  nums.length;
+    document.getElementById("demo").innerHTML =
+num;
+    document.getElementById("demo2").innerHTML =
+nums;
+    var time = tiempo.getHours() + ":" + tiempo.getMinutes() + ":" +  tiempo.getSeconds();
+    numsdata.unshift(time);  
+    document.getElementById("demo7").innerHTML = numsdata.join("  | ");
+    var nums2 = nums.slice(0,nums.lenght);
+    nums2.sort(function(a, b){return a - b});
+    document.getElementById("demo4").innerHTML = "Minim: " + nums2[0] + " / Maxim: " + nums2[nums.length-1];
+    document.getElementById("demo6").innerHTML = numsrep.join (" | ") + " | ";
+ 
+    
+}
+
+</script>
+
+</body>
+</html>

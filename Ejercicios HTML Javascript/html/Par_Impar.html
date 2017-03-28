@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<style> 
+		div { margin: 0 auto; }
+		main { margin: 0 auto;width: 350px; border: 1px solid darkblue;border-radius: 5px; }
+		button { width: 300px; }
+</style>
+</head>
+<body align="center">
+<main class="w3-panel w3-card-2">
+<div id="demo" class="w3-panel w3-card-2 w3-blue w3-round" style="width: 300px;" contenteditable="true">2</div>
+
+<button onclick="parimpar()"> Comprobar </button>
+<div style="width: 300px;" id="res" class="w3-panel w3-green w3-round w3-card-2"></div>
+</main>
+<script>
+function parimpar() {
+
+	var num= document.getElementById("demo").innerHTML;
+    if ( num%2!=0 )
+    {	
+    	        document.getElementById("res").innerHTML = "Impar";
+    }
+    else 
+    { 
+    	    	document.getElementById("res").innerHTML = "Par"; 
+    }
+}
+</script>
+
+</body>
+</html>

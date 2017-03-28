@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+<script>
+function person(firstName,lastName,age,eyeColor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.eyeColor = eyeColor;
+    this.changeName = function (name) {
+        this.lastName = name;
+    },
+    this.changeAge = function (age) {
+    	this.age += age;
+    }  
+}
+var myMother = new person("Sally","Rally",48,"green");
+myMother.changeName("Doe");
+myMother.changeAge(10);
+document.getElementById("demo").innerHTML =
+"My mother's last name is " + myMother.lastName;
+document.getElementById("demo2").innerHTML =
+"My mother's age is " + myMother.age;
+
+</script>
+
+</body>
+</html>

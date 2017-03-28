@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>The pop method removes the last element from an array.</p>
+
+<button id="boton" onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var fruits2 = [];
+document.getElementById("demo").innerHTML = fruits;
+
+function myFunction() {
+
+if (fruits.length > 0) 
+{
+	fruits2.push(fruits.pop()); 
+    document.getElementById("demo").innerHTML = fruits;
+	document.getElementById("demo2").innerHTML = fruits2;
+}
+
+if (fruits.length == 0) document.getElementById("boton").style.display="none";
+
+ 
+}
+</script>
+
+</body>
+</html>

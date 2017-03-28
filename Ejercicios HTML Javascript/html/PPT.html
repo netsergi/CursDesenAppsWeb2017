@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        button { width: 158px; height: 200px; margin-right: 10px; border-radius: 30px;box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.5); text-decoration: none; }
+        .cuadro { margin: 0 auto; text-align: center; width: 400px; height: 300px; border: 2px solid darkblue;border-radius: 10px; }
+        main { width: 800px;text-align: center;margin: 0 auto; border: 10px solid black; padding: 10px; border-radius: 20px;box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.5);}
+        img { float: left; dislpay: inline; positon: absolute; }
+        #res { margin-top: 40px; }
+    </style>
+</head>
+<body>
+<main>
+<div class="cuadro"><img id="pc" src=""><img id="res" align="baseline" src=""><img id="per" src=""><p id="text"></p></div>
+<br>
+<button id="piedra" onclick="jugar(this)" style="background: url('piedra.jpg');"/>
+<button id="papel" style="background: url('papel.jpg'); "/>
+<button id="tijera" style="background: url('tijera.jpg'); "/>
+</main>
+
+<script>
+function jugar(ele)
+{      
+    var n = Math.floor((Math.random() * 2));
+    //0: Papel 1: Tijera 2: Piedra
+    switch (ele.id)
+    {
+    	case "piedra":
+            switch (n)
+            {
+            	case 0:
+                       document.getElementById("pc").src = 'papel.jpg'; 
+                       document.getElementById("res").src = 'x.png';   
+                       document.getElementById("per").src = 'piedra.jpg';                                
+                break;
+                case 1:
+                      
+                       document.getElementById("pc").src = 'tijera.jpg';
+                   
+                break;
+                case 2:
+                		
+                        document.getElementById("pc").src = 'piedra.jpg';          
+                break;
+                		
+            }
+     
+        break;
+    }
+}
+//var opcion = prompt ("Piedra, papel o tijera?: ","");
+//jugar(ele);
+</script>
+
+</body>
+</html>

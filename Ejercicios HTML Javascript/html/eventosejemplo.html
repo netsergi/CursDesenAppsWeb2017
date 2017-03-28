@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<button id="btn" onmouseover="cambia(this,'over');" onmouseout="cambia(this,'out');"> The time is?</button>
+
+<script>
+function cambia(elem, op)
+{
+	switch (op)
+     {
+    	case 'over':
+       		elem.style.transition = "all 0.2s";
+            elem.style.borderRadius="5px";
+            elem.style.background="red";
+            elem.style.color ="yellow";
+            elem.style.fontWeight="bold";
+            elem.style.fontSize="22px";
+            elem.style.boxShadow="1px 1px 6px rgba(255,255,0,0.5)"
+            break;
+    
+    	case 'out':
+            elem.style.transition = "all 0.1s";
+            elem.style.borderRadius="";
+            elem.style.background="";
+            elem.style.color ="";
+            elem.style.fontWeight="";
+            elem.style.fontSize="";
+            elem.style.boxShadow="";
+        	break;
+     }
+}
+
+</script>
+
+</body>
+</html>
