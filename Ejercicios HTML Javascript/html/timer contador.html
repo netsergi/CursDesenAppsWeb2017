@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+	img {margin-left: 10px; align: base-line; vertical-align:bottom; transition: all 1s;  }
+    
+    img:hover { transform: rotate(360deg); }
+</style>
+<body>
+
+<p>A script on this page starts this clock:</p>
+<p id="demo"></p>
+<button onclick="clearInterval(myVar)">Stop time</button>
+
+
+<script>
+var timer =11;
+var myVar = setInterval(myTimer ,1000);
+
+function myTimer() {
+    var d = new Date();
+    timer--;
+    document.getElementById("demo").innerHTML = "<span class='w3-badge w3-green w3-xlarge'>" + timer + "</span>";
+    if (timer == 0) {
+    	document.getElementById("demo").innerHTML+= "<img src='smiley.gif'>";
+    	clearInterval(myVar);     
+    }
+}
+
+</script>
+
+</body>
+</html>
