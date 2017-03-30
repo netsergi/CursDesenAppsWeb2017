@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button id="boton">Aturar</button>
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+
+document.getElementById("boton").addEventListener("click", function () {clearInterval(timer);})
+
+function gestiona()
+{
+  var parent = document.getElementById("div1");
+  var child = document.getElementById("p1");
+     if (!child)
+    {
+      var ele = document.createElement("p");
+      ele.id= "p1";
+      var node = document.createTextNode("This is new.");
+      ele.appendChild(node); 
+        parent.appendChild(ele);
+    }
+    else
+    {
+      parent.removeChild(child);
+    }
+}
+
+var timer = setInterval (gestiona,1000);
+
+</script>
+
+</body>
+</html>
