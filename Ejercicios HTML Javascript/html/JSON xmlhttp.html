@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-card w3-round w3-padding-16 w3-margin">
+	<h2 class="w3-margin">Use the XMLHttpRequest to get the content of a file.</h2>
+	<p class="w3-margin">The content is written in JSON format, and can easily be converted into a JavaScript object.</p>
+
+	<p class="w3-margin" id="demo"></p>
+	<button id="boton" class="w3-margin w3-button w3-red">Carregar fitxer</button>
+
+	<script>
+
+	document.getElementById("boton").addEventListener ("click",carregar);
+
+	function carregar ()
+	{
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	        myObj = JSON.parse(this.responseText);
+	        document.getElementById("demo").innerHTML = myObj.name;
+	    }
+	};
+	xmlhttp.open("GET", "json_demo.txt", true);
+	xmlhttp.send();
+	}
+
+	</script>
+
+	<p class="w3-margin w3-panel w3-blue">Take a look at <a  class="w3-link" href="json_demo.txt" target="_blank">json_demo.txt</a></p>
+</div>
+</body>
+</html>

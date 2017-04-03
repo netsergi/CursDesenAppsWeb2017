@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<table  class="w3-table w3-striped w3-border w3-hoverable" id="tabla"></table>
+
+
+<script>
+var text = '{"employees":[' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}';
+
+var txt = "<tr><th>Firstname</th><th>Lastname</th></tr>";
+
+obj = JSON.parse(text);
+
+for (var i=0;Object.keys(obj).length;i++)
+{
+	txt += "<tr><td>" + obj.employees[i].firstName + "</td><td>" + obj.employees[i].lastName + "</td></tr>";
+	document.getElementById("tabla").innerHTML = txt;
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>

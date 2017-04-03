@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		#msg { margin-left: 30px; color: red; font-size: 15px; font-weight: bold; font-family: "verdana"; width: 300px; padding: 10px; display: none; float: left;}
+		form { font-family: "verdana"; font-weight: bold; }
+		input{ height: 25px; }
+
+
+		body { padding: 20px; }
+
+	</style>
+<body>
+
+<form name="myForm" action="/action_page_post.php"
+onsubmit="return validateForm()" method="post">
+Name: <input type="text" name="fname" onkeyup="comproba()">
+<input type="submit" name="btnenv" value="Submit" disabled="true">
+</form>
+
+<p id="msg"></p>
+
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+
+function comproba()
+{
+	var btnsub = document.forms["myForm"]["btnenv"];
+	var camp = document.forms["myForm"]["fname"];
+    var txt = document.getElementById("msg");
+    if (camp.value.length < 6) {
+    	txt.innerHTML = "<img src='https://www.cineplanet.com.pe/images/alert-triangle-red.png' style='vertical-align: middle;margin-right: 5px;' /> Longitud minima de 6 caracters ";
+    	txt.style.boxShadow = "1px 1px 4px rgba(0,0,0,0.5)";
+    	txt.style.backgroundColor = "yellow";
+    	txt.style.borderRadius= "5px";
+    	camp.style.color = "red";
+    	txt.style.display = "block";
+    	btnsub.disabled = true;
+   	    	    }
+    else
+    {
+    	btnsub.disabled = false;
+    	txt.innerHTML = "";
+    	txt.style.border = "";
+    	txt.style.boxShadow = "";
+    	txt.style.backgroundColor = "";
+    	camp.style.color = "lightgreen";
+    	camp.style.fontWeight = "bold";
+
+    }
+}
+
+
+
+</script>
+</body>
+</html>

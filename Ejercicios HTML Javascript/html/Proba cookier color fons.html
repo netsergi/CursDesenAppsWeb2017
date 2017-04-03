@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style type="text/css">
+		div {border: 1px solid black; height: 20px; width: 150px; float: left; margin-right: 10px; height:40px; text-align: center; }
+	    button { margin-left: 20px;}
+	    body {padding: 20px;}
+	    #capa { width: 800px; height: 400px; margin: 0 auto; padding: 10px; background-color: white;}
+	   	#color { width: 80px; height: 40px;}
+
+	</style>
+	<script src="cookies.js"></script>
+</head>
+<body>
+	<div id="capa" class="w3-card">
+	 	<input type="color" id="color" class="w3-button w3-border" value="#ccc"><button id="boton" class="w3-button w3-blue">Cambiar color</button>
+	</div>
+	<script>
+		var inputcolor = document.getElementById("color")
+		
+		inputcolor.onchange = function () {
+
+			document.body.style.backgroundColor = this.value;
+		}
+
+		document.getElementById("boton").onclick = function (){cambiaColorPantalla();}
+		function cambiaColorPantalla()
+			{
+				var color =  document.getElementById("color").value;
+				//document.body.style.backgroundColor = color;
+				setCookie ("fons",color,10);
+			}
+
+		inputcolor.defaultValue = getCookie ("fons");
+		document.body.style.backgroundColor = getCookie ("fons");
+		
+	</script>
+
+</body>
+</html>
