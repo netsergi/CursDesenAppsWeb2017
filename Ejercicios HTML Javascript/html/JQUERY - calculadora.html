@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<style>
+		.w3-panel { width: 680px; margin: 50px auto;height: auto;font-weight: bold; font-size: 20px; padding: 10px;border: 1px solid black;text-align: center;}
+
+		 #num1,#num2, #res {border: 1px solid black; height: 30px;width: 200px;margin-right: 10px;float: left;}
+		 button { font-size: 12px; }
+		 div[id^="num"] { box-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+		 span { float: left; margin-right: 5px; }
+	</style>
+</head>
+<body>
+	<div class="w3-panel w3-card">
+		<div id="num1" contenteditable="true">0</div>
+		<div id="num2" contenteditable="true">0</div><span>=</span>
+		<div id="res">0</div>	
+		<button id="suma" class="button w3-blue">Sumar</button>
+		<button id="resta" class="button w3-blue">Restar</button>
+		<button id="multi" class="button w3-blue">Multiplicar</button>
+		<button id="divide" class="button w3-blue">Dividir</button>	
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var num1 = $("#num1");
+			var num2 = $("#num2");
+			var res = $("#res");
+
+			num1.focus(function(){
+				num1.text("0");
+			});
+
+			num2.focus(function(){
+				num2.text("0");
+			});
+
+			num1.keypress(function(e){
+				if (e.charCode < 48 || e.charCode > 57) alert ("Nomes numeros");
+			});
+
+			num2.keypress(function(e){
+				if (e.charCode < 48 || e.charCode > 57) alert ("Nomes numeros");
+			});
+
+
+
+    		$("button").click(function (){
+    			var resultado =0;
+    			switch ($(this).attr("id"))
+	    		{
+	    			case "suma":
+	    					resultado = parseInt(num1.text()) + parseInt(num2.text());
+	    					res.text(resultado);
+	    			break;
+	    			case "resta":
+	    					resultado = parseInt(num1.text()) - parseInt(num2.text());
+	    					res.text(resultado);
+	    			break;
+	    			case "multi":
+	    					resultado = parseInt(num1.text()) * parseInt(num2.text());
+	    					res.text(resultado);
+	    			break;
+	    			case "divide":
+	    					resultado = parseInt(num1.text()) / parseInt(num2.text());
+	    					res.text(Math.floor(resultado));
+	    			break;
+	    		}
+	    			    	
+    		});        
+    	});
+	</script>
+</body>
+</html>

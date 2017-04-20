@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript" src="colors.json"></script>
+<script>
+$(document).ready(function(){
+	var colors;
+    $("button").click(function(){
+    	 $.get("colors.json", function(data, status){
+        	canviaColor(data);        
+    	});
+    });
+
+    $("#div1").mouseout(function(){
+    		 $.get("colors.json", function(data, status){
+        	canviaColor(data);            	   	  
+    		});
+    });
+
+    $("#div1").mouseover(function(){
+    		 $.get("colors.json", function(data, status){
+        	canviaColor(data);         	       
+    		});
+    });
+
+    function canviaColor(data)  
+     {
+     	colors = data;
+     	var num = Math.floor((Math.random() * colors.length));
+        console.log(num);
+        $("#div1").css("background-color",colors[num]);       
+     }
+
+});
+</script>
+<style>
+	.w3-pannel { padding: 15px; margin: 50px auto; width: 400px; 
+				 height: 400px; }
+	#div1 { float: right; 
+			width: 200px;
+			height: 200px;
+			border: 2px solid black; }
+</style>
+</head>
+<body class="w3-pannel w3-card">
+	<button class="w3-button w3-blue">Canviar de color</button>
+	<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+		.w3-ol { width: 300px; }
+		.w3-card { width: 400px; margin: 20px auto; }
+
+
+</style>
+</head>
+<body class="w3-panel w3-card w3-padding-16">
+
+<script>
+	$(document).ready(function(){
+		
+		var frutas = [];
+
+		do {
+			var fruta = prompt ("Fruita de temporada?: ");
+			if (fruta != null && fruta.length > 0) frutas.push(fruta);
+		} while (fruta != null && fruta.length > 0);
+
+	    $("body").append("<button id='btn1' class='w3-button w3-blue'>Frutas de temporada </button><ol class='w3-ol w3-border w3-padding-16'></ol>");
+	    $("ol").slideUp(0);
+	    $("#btn1").click(function(){
+	    	$("ol").text("");
+	    	
+	    	 for (i=0;i< frutas.length;i++)
+	        {
+	        	var element = $("<li class='w3-padding-16'></li>");
+	        	element.css("color","blue").css("font-weight","bold");
+	        	$("ol").append(element);
+	        	element.text(frutas[i]);
+	        	//$("ol").append("<li class='w3-padding-16'>" + frutas[i] + " </li>");
+	        }
+	         $("ol").slideDown(500);
+	    });
+	 });
+
+</script>
+
+</body>
+</html>

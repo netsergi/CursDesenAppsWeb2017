@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<style>
+		.w3-panel { width: 600px; margin: 50px auto;height:auto;text-align: center; font-weight: bold; font-size: 20px; }
+
+		.fondo { background-color: yellow; color: red; }
+	</style>
+</head>
+<body>
+	<div class="w3-panel w3-card w3-padding-16">
+		<div id="txt" class="">Sergi</div>
+		<br>
+		<button id="boton" class="w3-button w3-green">Cambiar estil</button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var texto = $("#txt");
+			var i =0;
+			$("button").click(function(){
+				i++;
+				texto.toggleClass("fondo");
+				texto.text(texto.text().slice(0,texto.text().length - i));
+
+			});
+
+
+		});
+	</script>
+</body>
+</html>

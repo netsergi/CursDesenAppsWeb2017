@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body class="w3-pannel w3-card w3-padding-16">
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	var contador = 0;
+	var cols = prompt ("Numero de columnes: ");
+	var rows = prompt ("Numero de files: ");
+	var tabla = $("<table class='w3-table w3-striped w3-border' border=1></table>");
+	tabla.css("width","300px");
+	$("body").append(tabla);
+	for (var i=0;i < rows;i++)
+			{
+				var fila = tabla.append("<tr></tr>");
+				for (var j=0; j < cols;j++)
+					{
+						contador++;
+						let numero = contador;
+						let casella = $("<td>" + numero + "</td>");
+						fila.append("<td>hh</td>");
+						if (contador%2 == 1) casella.empty();	
+						casella.hover(function(){
+   							 casella.css("background-color","yellow")
+   							 	.css("color","blue")
+   							 	.css("font-weight","bold");
+							},
+							function () { casella.css("background-color","")
+									.css("color","")
+									.css("font-weight","");		
+							});							
+					}
+				}
+	});
+</script>	
+</body>
+</html>

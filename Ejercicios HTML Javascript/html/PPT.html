@@ -3,25 +3,35 @@
 <head>
     <style type="text/css">
         button { width: 158px; height: 200px; margin-right: 10px; border-radius: 30px;box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.5); text-decoration: none; }
-        .cuadro { margin: 0 auto; text-align: center; width: 400px; height: 300px; border: 2px solid darkblue;border-radius: 10px; }
-        main { width: 800px;text-align: center;margin: 0 auto; border: 10px solid black; padding: 10px; border-radius: 20px;box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.5);}
-        img { float: left; dislpay: inline; positon: absolute; }
-        #res { margin-top: 40px; }
+        .cuadro { margin: 0 auto; text-align: center; width: 490px; height: 250px; border: 4px solid darkblue;border-top-left-radius: 50px; border-bottom-right-radius: 50px;  }
+        main { width: 800px; height: 400px;text-align: center;margin: 0 auto; border: 10px solid black; padding: 10px; border-radius: 20px;box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.5);}
+        img { float: left; dislpay: inline; positon: absolute;vertical-align: middle; }
+        #res { margin-top: 40px; padding: 10px; }
+        #piedra, #papel, #tijera { border-radius: 1000px; box-shadow: 2px 2px 2px 2px #ccc; border: 10px darkblue solid; width: 100px;height: 100px;margin: 0px 0px 0px 35px; transition: all 0.2s linear; }
+
+        img:hover { transform: scale(1.1, 1.1); }
+
+        #botones { margin: 0 auto; width: 500px; height:120px;text-align: center;}
+        #pc, #per {  margin: 20px 0px 0px 30px; }
+
+
     </style>
 </head>
 <body>
 <main>
-<div class="cuadro"><img id="pc" src=""><img id="res" align="baseline" src=""><img id="per" src=""><p id="text"></p></div>
+<div class="cuadro"><img id="pc" src=""><img id="res" align="baseline" src=""><img id="per" src=""><br><p id="text">fff</p></div>
 <br>
-<button id="piedra" onclick="jugar(this)" style="background: url('piedra.jpg');"/>
-<button id="papel" style="background: url('papel.jpg'); "/>
-<button id="tijera" style="background: url('tijera.jpg'); "/>
+<div id="botones">
+<img id="piedra" src="piedra.jpg" onclick="jugar(this)" />
+<img id="papel" src="tijera.jpg" onclick="jugar(this)" />
+<img id="tijera" src="papel.jpg" onclick="jugar(this)" />
+</div>
 </main>
 
 <script>
 function jugar(ele)
-{      
-    var n = Math.floor((Math.random() * 2));
+{
+    var n = Math.floor((Math.random() * 3));
     //0: Papel 1: Tijera 2: Piedra
     switch (ele.id)
     {
@@ -29,27 +39,29 @@ function jugar(ele)
             switch (n)
             {
             	case 0:
-                       document.getElementById("pc").src = 'papel.jpg'; 
-                       document.getElementById("res").src = 'x.png';   
-                       document.getElementById("per").src = 'piedra.jpg';                                
+                       document.getElementById("pc").src = 'papel.jpg';
+                       document.getElementById("res").src = 'x.png';
+                       document.getElementById("per").src = 'pierde.jpg';
                 break;
                 case 1:
-                      
+
                        document.getElementById("pc").src = 'tijera.jpg';
-                   
+                       document.getElementById("res").src = 'OK.png';
+                       document.getElementById("per").src = 'gana.jpg';
+
                 break;
                 case 2:
-                		
-                        document.getElementById("pc").src = 'piedra.jpg';          
+                        document.getElementById("pc").src = 'piedra.jpg';
+                        document.getElementById("res").src = 'igual.png';
+                        document.getElementById("per").src = 'empata.png';
                 break;
-                		
+
             }
-     
+
         break;
     }
 }
-//var opcion = prompt ("Piedra, papel o tijera?: ","");
-//jugar(ele);
+
 </script>
 
 </body>

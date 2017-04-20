@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+#div1 {
+    width: 700px;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#numele { border: 1px solid black; 
+		  clear: both;
+		  display: inline-block; 
+		  vertical-align: top; 
+		  margin-left: 20px;
+		  margin-top:15px; }
+
+body { padding: 20px; }
+
+.w3-badge { border: 3px solid white; }
+
+#div2 { border: 2px solid darkblue; padding: 5px; width: 700px; height: 90px;}
+
+img { padding: 5px; }
+
+</style>
+<script>
+
+	var i =0;
+	
+	function allowDrop(ev) {
+		console.log("allowDrop");
+	    ev.preventDefault();
+	}
+
+	function drag(ev) {
+		console.log("drag");
+		console.log(ev.target.id);
+		console.log(ev.layerX)
+	    ev.dataTransfer.setData("text", ev.target.id);
+	    ev.target.style.opacity = "0.9";
+	    ev.target.style.transform = "scale(1.6,1.6)";
+	}
+
+	function drop(ev) {
+		
+		console.log("drop");
+		ev.preventDefault();
+		if (ev.target.id == "div1" || ev.target.id == "div2" )
+		{
+			var data = ev.dataTransfer.getData("text");
+			var htmldata = document.getElementById(data);
+			htmldata.style.opacity = "1";
+			htmldata.style.transform = "scale(1,1)";
+			htmldata.innerHTML += "1";
+		}
+			ev.target.appendChild(htmldata);
+		
+		if (ev.target.id == "div1") { i++; }
+		else {i--; }
+				
+		document.getElementById("numele").innerHTML = i;
+}	 
+
+
+
+</script>
+</head>
+<body>
+
+<p>Drag the W3Schools image into the rectangle:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div><div id="numele" class="w3-badge w3-xxlarge w3-blue"></div>
+<br><br>
+<div id ="div2" ondrop="drop(event)" ondragover="allowDrop(event)" >
+<img id="drag1" src="naranja.png" draggable="true" ondragstart="drag(event)" width="100" height="69">
+<img id="drag2" src="manzana.png" draggable="true" ondragstart="drag(event)" width="100" height="69">
+<img id="drag3" src="pera.jpg" draggable="true" ondragstart="drag(event)" width="100" height="69">
+<img id="drag4" src="platano.jpg" draggable="true" ondragstart="drag(event)" width="100" height="69">
+</div>
+</body>
+</html>

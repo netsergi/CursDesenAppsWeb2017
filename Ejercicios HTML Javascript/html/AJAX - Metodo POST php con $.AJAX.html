@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        
+        $.ajax({
+   
+            url : 'retorn.php',
+ 
+            data : { num1 : parseInt($("[name='n1']").val()), num2 : parseInt($("[name='n2']").val()) },          
+ 
+            type : 'GET', 
+
+            //dataType : 'json', 
+ 
+            success : function(json) { alert(json.title);},
+ 
+            error : function(xhr, status) {
+            alert(status + " " + xhr.responseText);
+            }
+        });
+
+    });
+});
+</script>
+<style>
+    .w3-pannel {padding: 20px; margin: 50px auto; width: 600px; position: relative;}
+    .w3-badge {border: 5px white solid; box-shadow: none; float: right; position: absolute; right: 20px; top: 30px;}
+    .w3-card {border-radius: 20px;}
+</style>
+
+</head>
+<body class="w3-pannel w3-card">
+    <form id="f">
+    <input name="n1" type="number" contenteditable="true">
+    <input name="n2" type="number" contenteditable="true">
+    </form>
+    <br><br>
+    <button>Sumar numeros</button>
+    <div class="w3-badge w3-green w3-xxlarge" id="res"></div>
+</body>
+</html>

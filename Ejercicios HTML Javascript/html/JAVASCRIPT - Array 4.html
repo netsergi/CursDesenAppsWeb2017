@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<style>
+		.w3-panel { width: 600px; margin: 50px auto;height: auto;text-align: center; font-weight: bold; font-size: 20px; }
+		span { color: blue; }
+
+	</style>
+</head>
+<body>
+	<div  class="w3-panel w3-card w3-padding-16">
+		<div id="text1" class="w3-note w3-sand w3-leftbar w3-border-blue"></div>
+		<br>
+		<div id="text2" class="w3-note w3-sand w3-leftbar w3-border-blue"></div>
+		<br>
+		<div id="text3" class="w3-note w3-sand w3-leftbar w3-border-blue"></div>
+		<div id="text4" class="w3-note w3-sand w3-leftbar w3-border-blue"></div>
+		
+	</div>
+
+	<script type="text/javascript">
+		
+		var nums = ["Un","Dos","tres","QuaTre"];
+		
+		document.getElementById("text1").innerHTML = "La longitud del array es: <span>" + nums.length +"</span>";
+
+		// Copia de l'array i passar tot a minuscules
+
+		var nums2 = nums.slice(0,nums.length);
+		for (var i=0; i < nums2.length;i++) { 
+			if (nums2[i] != nums2[i].toLowerCase())
+			 { console.log (nums[i] + "-->" + nums2[i]); }		
+		}
+
+		//---------------
+
+		document.getElementById("text2").innerHTML = "L'array ordenat alfabeticament es:<br> "+ nums.sort().join(" | ");
+		document.getElementById("text3").innerHTML = "La longitud de cada element es: <br>";
+		var total = 0;
+		for (var i=0; i < nums.length;i++)
+		{
+			total += nums[i].length
+			document.getElementById("text3").innerHTML += " " + nums[i] + ": " + nums[i].length;
+		}		
+		document.getElementById("text3").innerHTML += "<br><br> Longitud total de l'array: <br>  " + total;
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $.post("retorn.php",
+        {
+          num1: $("[name='n1']").val(),
+          num2: $("[name='n2']").val()
+        },
+        function(data,status){
+            //alert("Data: " + data + "\nStatus: " + status);
+            $("#res").css("box-shadow","1px 1px 8px rgba(0,0,0,0.4)");
+            $("#res").html(data);
+        });
+    });
+});
+</script>
+<style>
+    .w3-pannel {padding: 20px; margin: 50px auto; width: 600px; position: relative;}
+    .w3-badge {border: 5px white solid; box-shadow: none; float: right; position: absolute; right: 20px; top: 30px;}
+    .w3-card {border-radius: 20px;}
+</style>
+
+</head>
+<body class="w3-pannel w3-card">
+    <form id="f">
+    <input name="n1" type="number" contenteditable="true">
+    <input name="n2" type="number" contenteditable="true">
+    </form>
+    <br><br>
+    <button class="ui-button .ui-button-icons-only">Sumar numeros</button>
+    <div id="res"></div>
+</body>
+</html>

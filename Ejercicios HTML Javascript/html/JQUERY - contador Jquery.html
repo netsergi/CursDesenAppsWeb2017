@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+	
+	var clicks = new Array($("p").length).fill(0);
+	    
+    $("p").click(function(){
+       clicks[$(this).index()]++;
+	   //$("p>span:eq("+ $(this).index() +")").html(clicks[$(this).index()]);
+	   $(this).children(":first").html(clicks[$(this).index()]);
+       
+    });
+});
+</script>
+</head>
+<body>
+
+<p>If you click on me, I will disappear.<span></span></p>
+<p>Click me away!<span></span></p>
+<p>Click me too!spaan <span></span></p>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<style>
+		.w3-panel { width: 600px; margin: 50px auto;height:auto;text-align: center; font-weight: bold; font-size: 20px; }
+	</style>
+</head>
+<body>
+	<div id="n">
+		<div id="txt">Text de proba</div>
+		<br>
+		<button id="boton" class="w3-button w3-red">Apareixer / Desapareixer </button>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var n = $(window).heigth() /2;
+			$("#n").css("margin-top","200px");
+			var texto = document.getElementById("txt");
+
+			$("button").click(function(){
+				revisar();
+			});
+
+			function revisar()
+			{
+				if(texto.style.visibility == "visible")
+				{
+				 	texto.style.visibility = "hidden";
+				} else { 
+					texto.style.visibility = "visible";  
+				}
+			}
+		});
+	</script>
+</body>
+</html>
