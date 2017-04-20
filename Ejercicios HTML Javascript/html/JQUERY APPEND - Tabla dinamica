@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var cols = prompt ("Numero de columnes: ");
+	var rows = prompt ("Numero de files: ");
+	var tabla = $("<table border=1></table>");
+
+	for (i=0; i <= cols;i++)
+	{
+		tabla.append("<tr>");
+		for (j=0;j<= rows,j++)
+		{
+			tabla.append("<td> proba </td>");
+		}
+		tabla.append("</tr>");
+	}
+
+</script>	
+</body>
+</html>
