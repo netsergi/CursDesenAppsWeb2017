@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<style> 
+  span:hover {cursor: pointer;
+              color: darkred;
+              font-weight: bold;}
+ 
+</style>
+</head>
+<html> 
+<body> 
+<div class="w3-pannel w3-card w3-padding-16">
+<div id="fons" style="text-align:center"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="mute()">Mute / Sound</button>
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+    <br><br>
+  <video id="video1" width="420" height="231">
+    <source src="../video/mov_bbb.mp4" type="video/mp4">
+    <source src="../video/mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+  <br>
+  <span id="video1" onclick="canvia(this)">Video 1</span>
+  <span> / </span>
+  <span id="video2" onclick="canvia(this)">Video 2</span> 
+<p>Video courtesy of <a href="https://www.bigbuckbunny.org/" target="_blank">Big Buck Bunny</a>.</p>
+</div> 
+
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function canvia(ele)
+{
+    if (ele.id=="video1")
+    { myVideo.src="../video/mov_bbb.mp4"; }
+    else if (ele.id=="video2")
+      { myVideo.src="../video/movie.mp4"; }
+}
+
+function playPause() { 
+    if (myVideo.paused) 
+        myVideo.play(); 
+    else 
+        myVideo.pause(); 
+} 
+
+function makeBig() { 
+    myVideo.width = 560; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 420; 
+} 
+
+function mute() { 
+    if (myVideo.muted)
+        myVideo.muted = false; 
+    else 
+      myVideo.muted = true; 
+}
+
+</script> 
+
+</div>
+</body> 
+</html>
