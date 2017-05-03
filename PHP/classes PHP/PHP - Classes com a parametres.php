@@ -67,7 +67,7 @@ class Menu {
   }
 }
 
-$menu1=new Menu('horizontal');
+$menu1=new Menu('vertical');
 $opcion1=new Opcion('Google','http://www.google.com','#C3D9FF');
 $menu1->insertar($opcion1);
 $opcion2=new Opcion('Google','http://www.google.com','#C3D9FF');
