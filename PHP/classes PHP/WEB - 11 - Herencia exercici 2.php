@@ -49,11 +49,9 @@
             return parent::imprimir().",".$this->sou;
           }
        }
-
       $empleat = new Empleat("Laura",28,1500);
       echo "<b>Nom, edad i sou</b> ".$empleat->imprimir();    
     ?>
- 
 </main>
 </body>
 </html>

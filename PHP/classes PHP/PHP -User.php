@@ -37,11 +37,17 @@
           {
             return $this->firstName. "   ".$this->lastName;
           }
+
+          public function __toString()
+          {
+            return  "<br>".$this->firstName;
+          }
+
         }
 
         $usuario = new User("Pedro","Garcia Alonso");
         echo "<span>".$usuario->getFullName()."</span>";
- 
+        echo ($usuario);
     ?>
   </main>
 </body>
