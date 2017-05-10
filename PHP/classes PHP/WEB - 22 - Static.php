@@ -13,7 +13,7 @@ class Cadena {
   {
     return strtoupper($cad);
   }
-  public static function minusculas($cad)
+  public function minusculas($cad)
   {
     return strtolower($cad);
   }
@@ -27,6 +27,7 @@ echo '<br>';
 echo 'Toda en mayúsculas:'.Cadena::mayusculas($c);
 echo '<br>';
 echo 'Toda en minúsculas:'.Cadena::minusculas($c);
+
 ?>
 </body>
 </html>
