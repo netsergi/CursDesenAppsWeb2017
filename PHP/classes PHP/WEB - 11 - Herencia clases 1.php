@@ -28,7 +28,26 @@
     }
   }
 
-  class Suma extends Operacion{
+
+  class Operacion2 {
+    protected $valor1;
+    protected $valor2;
+    protected $resultado;
+    public function cargar1($v)
+    {
+      $this->valor1=$v;
+    }
+    public function cargar2($v)
+    {
+      $this->valor2=$v;
+    }
+    public function imprimirResultado()
+    {
+      echo "<span class='label label-primary'>".$this->resultado."</span><br>";
+    }
+  }
+
+  class Suma extends Operacion, Operacion2 {
     public function operar()
     {
       $this->resultado=$this->valor1+$this->valor2; 

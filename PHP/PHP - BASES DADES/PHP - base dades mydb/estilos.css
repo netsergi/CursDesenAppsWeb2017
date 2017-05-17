@@ -1,0 +1,36 @@
+caption { font-weight: bold;
+				  font-size: 20px;
+				  color: darkred;
+				  border-radius: 10px; 
+				  margin-bottom: 10px;
+				  background-color: white;
+				  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);}
+
+
+		th { color: white; background-color: #3366cc;  }
+
+		.w3-table-all { width: 850px; 
+						border: 2px solid black;
+						box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+						margin: 0 auto;
+						}
+
+		.capa { background: linear-gradient(#66ccff,darkblue);
+			  margin: 50px auto;
+			  border-radius: 20px;
+			  width: 950px;
+			  min-height: 50px;
+			  box-shadow: 2px 2px 2px #ccc; 
+			  padding: 10px;
+			  }
+
+		h2 { margin: 0 auto; 
+			 color: white;
+			 text-shadow: 1px 1px 1px rgba(0,0,0,0.5);}
+
+		.user { float: right; width: 120px; height: 120px; margin-right: 50px; }
+
+		.esborrat { visibility: hidden; }
+
+		a { text-decoration: none;
+			margin-right: 10px; }
