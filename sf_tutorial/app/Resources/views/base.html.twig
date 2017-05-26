@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    </head>
-    <body>
+<head>
+    <title>Coffe Shop - {% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">  
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+        <div class="w3-col s3">
+              <a href="{{path ('home')}}" class="w3-button w3-block w3-black
+              {% if app.request.attributes.get('_route') == 'home' %}selected{% endif %}">HOME</a>
+        </div>
+        <div class="w3-col s3">
+              <a href="{{path('about')}}" class="w3-button w3-block w3-black {% if app.request.attributes.get('_route') == 'about' %}selected{% endif %}">ABOUT</a>
+        </div>
+        <div class="w3-col s3">
+              <a href="{{path('menu')}}" class="w3-button w3-block w3-black {% if app.request.attributes.get('_route') == 'menu' %}selected{% endif %}">MENU</a>
+        </div>
+        <div class="w3-col s3">
+              <a href="{{path('where')}}" class="w3-button w3-block w3-black">WHERE</a>
+        </div>
+        </div>
+    </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </footer>
+
+</body>
 </html>
