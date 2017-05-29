@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block sidebar %}{% endblock %}
+
+{% block main %}
+  
+  <br>
+  <br>
+  <div style="text-align: center; padding: 10px;" class="w3-pannel w3-card">
+    <h1>Contact Info</h1>
+    <br>
+    <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+    <div class="row">
+      <label for="name">Name:</label><br />
+      <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="email">Email:</label><br />
+      <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
+    </div>
+    <div class="row">
+      <label for="message">Message:</label><br />
+      <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
+    </div>
+    <input id="submit_button" type="submit" value="Send email" />
+  </form> 
+</div>
+{% endblock %}
