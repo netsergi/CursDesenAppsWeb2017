@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="w3-card-4">
+		<header class="w3-container w3-green">
+		  <h1>Mostrar registro</h1>
+		</header>
+		<div class="w3-container">
+		  <p> 
+		  	ID: <b class="w3-text-blue">{{ producto.id }}</b><br>
+			Product: <b class="w3-text-blue">{{ producto.name }}</b><br>
+			Price: <b class="w3-text-blue">{{ producto.price }}</b> <br>
+			Description:<b class="w3-text-blue"> {{ producto.description }}</b> <br>
+			Short desciption:<br><br> <b class="w3-padding-16 w3-text-blue w3-border">{{ producto.shortdescription }}</b><br><br>
+			Date post: <b class="w3-text-blue">{{ producto.postedAt | date("d/m/Y")}}</b>
+		  </p>
+		</div>
+		<footer class="w3-container w3-green">
+		  <h5></h5>
+		</footer>
+	</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="w3-card-4">
+		<header class="w3-container w3-green">
+		  <h1>Crear registro</h1>
+		</header>
+			<form class="w3-container" method="post" name="frmedit" action="{{ path ('create') }}">
+				<input class="w3-input" type="text" name="id"  style="display: none;">
+				<label>Name</label>
+				<input class="w3-input" type="text" name="name" >
+				<label>Price</label>
+				<input class="w3-input" type="text" name="price" >
+				<label>Description</label>
+				<input class="w3-input" type="text" name="description" >
+				<label>Short description</label>
+				<input class="w3-input" type="text" name="shortdescription" >
+				<hr>
+				<input class="w3-button w3-green" type="submit" value="Crear">
+				<br><br>
+			</form>
+		<footer class="w3-container w3-green">
+		</footer>
+	</div>
+{% endblock %}

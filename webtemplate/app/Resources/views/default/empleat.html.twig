@@ -1,0 +1,28 @@
+{% extends 'default/empleats.html.twig' %}
+
+{% block showemp %}
+    <div class="w3-pannel w3-card divemp">
+      <h1 class="w3-text-teal">Empleat<h1>
+      <hr>
+      <br>
+      <img class="img_emp" src="{{ asset ('img/empleat/User'~random(2)~'.png') }}" >
+      <h2 class="w3-text-blue">{{ resultat.EMPL_FORNAME }} {{ resultat.EMPL_SURNAME}}</h2>
+      <h4 class="w3-note w3-red">{{ resultat.KNLN_NAME}}</h4>
+      <br>
+      <main class="w3-note w3-card w3-blue">
+       <h4><b>Localitzacio oficina:</b> {{ resultat.OFFC_CITY}}</h4>
+       <h4><b>Oficina:</b> {{ resultat.OFFC_DESCRIPTION }}</h4>
+       <h4><b>Data d'acomiadament:</b> {{ resultat.EMPL_HIRE_DATE | date("m/d/Y") }}</h4>
+      </main>
+    </div>
+  </div>  
+{% endblock %}
+{% block sidebar %}
+  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" style="z-index:3;width:250px;margin-top:43px;" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+  <i class="fa fa-remove"></i>
+    </a>
+  <h4 class="w3-bar-item w3-border-bottom"><b>Projectes</b></h4>
+   {{ render(controller("AppBundle:Default:sidebar", {'id' : resultat.EMPL_ID } )) }}
+  </nav>
+{% endblock %}

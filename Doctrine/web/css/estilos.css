@@ -1,0 +1,65 @@
+.w3-card-4 { width: 700px; margin: 50px auto;height:auto;text-align: left; font-weight: bold; font-size: 20px; }
+a:hover { color: blue; }
+a { text-decoration: none; }
+.size { width: 1200px; }
+
+.btnshow { border-top-left-radius: 15px;
+		   border-bottom-right-radius: 15px; 
+		   box-shadow: 1px 1px 1px rgba(0,0,0,0.3); 
+		   background: url('/img/ver.png')  left no-repeat;
+		   background-size: 30px;
+		   padding: 6px 10px 8px 40px;
+		   vertical-align: bottom;
+		   width: 120px;
+       margin-right: 0px; 
+		    }
+
+.btnedit  { border-top-left-radius: 15px;
+		   border-bottom-right-radius: 15px; 
+		   box-shadow: 1px 1px 1px rgba(0,0,0,0.3); 
+		   background: url('/img/edit.png')  left no-repeat;
+		   background-size: 30px;
+		   padding: 6px 10px 8px 40px;
+		   vertical-align: bottom;
+		   width: 110px;
+		  }
+
+ .btnadd  { 
+           box-shadow: 1px 1px 1px rgba(0,0,0,0.3); 
+           background: url('/img/add.png')  left no-repeat;
+           background-size: 30px;
+           padding: 6px 10px 8px 40px;
+           vertical-align: bottom;
+           width: 110px;
+          }
+
+.btndel  { border-top-left-radius: 15px;
+           border-bottom-right-radius: 15px; 
+           box-shadow: 1px 1px 1px rgba(0,0,0,0.3); 
+           background: url('/img/delete.png')  left no-repeat;
+           background-size: 30px;
+           padding: 6px 10px 8px 40px;
+           vertical-align: bottom;
+           width: 120px;
+          }
+
+.fondotit { background: url('/img/table.png')  left no-repeat;  
+            background-size: 40px;
+            padding-left: 45px;
+            color: white !important;
+            font-family: 'Anton', sans-serif; }
+
+
+.llistat { padding: 10px;
+           width: 700px; 
+           margin: 0 auto;
+          }
+
+input[type="text"] {
+color: blue;
+margin-right: 10px;
+.padding { padding: 5px; }
+
+form { width: 500px; 
+       text-align: center;}
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<div class="w3-card-4">
+		<header class="w3-container w3-green">
+		  <h1>Editar registro</h1>
+		</header>
+			<form class="w3-container" method="post" name="frmedit" action="{{ path('edit' , {'id' : producto.ID}) }}">
+				<input class="w3-input" type="text" name="id" value="{{producto.ID}}" style="display: none;">
+				<label>Name</label>
+				<input class="w3-input" type="text" name="name" value="{{producto.NAME}}">
+				<label>Price</label>
+				<input class="w3-input" type="text" name="price" value="{{producto.PRICE}}">
+				<label>Description</label>
+				<input class="w3-input" type="text" name="description" value="{{producto.DESCRIPTION}}">
+				<label>Short description</label>
+				<input class="w3-input" type="text" name="shortdescription" value="{{producto.shortdescription}}">
+				<hr>
+				<input class="w3-button w3-green" type="submit" value="Submit">
+				<br><br>
+			</form>
+		<footer class="w3-container w3-green">
+		</footer>
+	</div>
+{% endblock %}

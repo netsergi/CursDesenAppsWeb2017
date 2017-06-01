@@ -1,0 +1,58 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.selected { background-color: #ccc; }
+
+.w3-pannel { padding: 5px;
+             width: 600px;
+             margin-left: 10px;
+             text-align: center;}
+
+.icono_emp { width: 65px; 
+      height: 65px; 
+      float: left;
+      margin-right: 10px; 
+  	  vertical-align: middle;
+  	  margin-bottom:  8px;}
+
+
+.img_emp { width: 150px !important; 
+		   height: 150px !important; 
+		   border: 3px solid white;
+		   box-shadow: 2px 2px 2px #ccc;}
+
+b { padding: 2px; }
+
+hr,br { margin: 0px; }
+
+.txt_tit { color: white; }
+
+.tit { padding: 0px; margin: 0 auto; }
+
+.card_emp { width: 600px;
+            margin-left: 20px; }
+
+.emp_id { float: right;
+ 		   font-size: 18px;
+ 		   margin-right: 5px;}
+
+
+main { width: 500px;
+	     padding: 10px;
+       margin: 0 auto;
+       text-align: left; 
+       margin-bottom: 5px;}
+
+
+
+li {
+  background: url('../img/list.png') no-repeat left top;
+  padding: 6px 5px 10px 40px;
+  /* reset styles (optional): */
+  list-style: none;
+  margin-right: 5px;
+}
+
+
+nav { width: 600px; }
+
+header { padding: 10px; }
+
