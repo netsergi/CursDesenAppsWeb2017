@@ -1,0 +1,6 @@
+# src/Blogger/BlogBundle/Resources/config/config.yml
+parameters:
+    # dirección de correo electrónico para contacto del Blogger
+    blogger_blog.emails.contact_email: netsergi@email.com
+    blogger_blog.emails.departament.marketing: netsergi@alwaysdata.net
+    blogger_blog.emails.departament.tecnic: netsergi@gmail.com

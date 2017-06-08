@@ -1,0 +1,8 @@
+{
+    "name": "sergi/composer",
+    "description": "Projecte proba amb composer",
+    "type": "monolog",
+    "require": {
+        "symfony/validator": "3.3.2"       
+    } 
+}

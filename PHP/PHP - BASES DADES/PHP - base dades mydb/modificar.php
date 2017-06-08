@@ -30,7 +30,7 @@
 			
 			if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			{
-				$sql= "UPDATE MyGuests SET firstname='".$_POST['firstname']."',lastname='".$_POST['lastname']."',email='".$_POST['email']."'  WHERE id='".$_POST['id']."';";
+				$sql= "UPDATE empleados SET firstname='".$_POST['firstname']."',lastname='".$_POST['lastname']."',email='".$_POST['email']."'  WHERE id='".$_POST['id']."';";
 			
 				if ($conn->query($sql) === TRUE) {
     				$msg = "Registro actualizado con exito!";
@@ -40,7 +40,7 @@
 
 			}
 
-			$sql="SELECT * FROM MyGuests WHERE id=".$_GET['id']." LIMIT 1";
+			$sql="SELECT * FROM empleados WHERE id=".$_GET['id']." LIMIT 1";
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc(); 
 			$conn->close();
