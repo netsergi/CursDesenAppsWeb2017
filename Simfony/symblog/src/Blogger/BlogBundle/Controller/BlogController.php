@@ -22,16 +22,15 @@ class BlogController extends Controller
         if (!$blog) {
             throw $this->createNotFoundException('Unable to find Blog post');
         }
-       $comments = $em->getRepository('BloggerBlogBundle:Comment')
+        $comments = $em->getRepository('BloggerBlogBundle:Comment')
                ->getCommentsForBlog($blog->getId());
 
-       /*$query = $em->createQuery(
-        'SELECT C1.blog_id, C1.id, C1.parent_id FROM comment C1
+        /*'SELECT C1.blog_id, C1.id, C1.parent_id FROM comment C1
          INNER JOIN blog C2
          ON C1.parent_id = C2.id 
-         WHERE C1.blog_id = 1 ORDER BY C1.parent_id');
-        $comments = $query->getResult(); */
-
+         WHERE C1.blog_id = 1 ORDER BY C1.parent_id';*/
+         
+        setlocale(LC_ALL,"es_ES");       
         return $this->render('BloggerBlogBundle:Blog:show.html.twig', array('blog' => $blog,'comments' => $comments));
     }
 
@@ -41,7 +40,7 @@ class BlogController extends Controller
         $blog = new Blog();
         $blog->setTitle("Begur, un lloc paradisiac");
         $blog->setAuthor("Sergi Navarro");
-        $blog->setBlog(mysql_real_escape_string ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut turpis tortor. Aliquam imperdiet id ante sit amet tincidunt. Mauris quis sem a mi finibus ullamcorper dapibus sed purus. Donec ut quam sapien. Sed augue massa, rutrum sed iaculis id, bibendum id est. Donec eu libero quis mi maximus condimentum. Nullam ac leo tincidunt, tristique purus non, mollis dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur mollis libero, id lacinia nulla vulputate at. Fusce fringilla bibendum urna sed porta. Aliquam erat volutpat. In eget imperdiet turpis, in tristique nisi. Aenean massa erat, euismod non ligula in, rhoncus tincidunt odio. Nulla erat ligula, auctor vel vulputate non, tristique vitae neque. Ut vitae efficitur erat. In in eros sed urna vestibulum eleifend.'));
+        $blog->setBlog(mysql_real_escape_string ('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut turpis tortor. Aliquam imperdiet id ante sit amet tincidunt. Mauris quis sem a mi finibus ullamcorper dapibus sed purus. Donec ut quam sapien. Sed augue massa, rutrum sed iaculis id, bibendum id est. Donec eu libero quis mi maximus condimentum. Nullam ac leo tincidunt, tristique purus non, mollis dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur mollis libero, id lacinia nulla vulputate at. Fusce fringilla bibendum urna sed porta.'));
         // Crea un comentario y lo añade a nuestro blog
         $blog->setTags("Estiu a begur");
         $blog->setImage('Begur.jpg');

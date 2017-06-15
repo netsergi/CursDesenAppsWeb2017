@@ -1,10 +1,13 @@
 {# src/Blogger/BlogBundle/Resources/views/Comment/index.html.twig #}
 
 {% for comment in comments %}
-    <article class="comment {{ cycle(['even', 'odd'], loop.index) }}" id="comment-{{ comment.id }}">
-	    <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time></p>
-		</header>
-	    <p>{{ comment.comment }}</p>    
+    <article class="comment {{ cycle(['even', 'odd'], loop.index0) }}" id="comment-{{ comment.id }}">
+        <header class="linea">
+            <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time><br>
+            <span class="location">Localització:  {{ comment.location }}</span></p>
+        </header>
+        <br>
+        <p>{{ comment.comment }}</p>
     </article>
 {% else %}
     <p>There are no comments for this post. Be the first to comment...</p>

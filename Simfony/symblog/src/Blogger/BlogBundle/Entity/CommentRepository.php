@@ -11,7 +11,7 @@ namespace Blogger\BlogBundle\Entity;
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
 
-	public function getCommentsForBlog($blogId, $approved = true)
+  public function getCommentsForBlog($blogId, $approved = true)
     {
         $qb = $this->createQueryBuilder('c')
                    ->select('c')

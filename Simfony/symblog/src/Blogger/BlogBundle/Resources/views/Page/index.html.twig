@@ -4,7 +4,7 @@
 {% block body %}
     {% for blog in blogs %}
         <article class="blog">
-            <div class="date"><img style="width: 25px; height: 25px; border: 0px; padding: 0px;" class="icono" src="{{ asset('images/calen.jpg') }}"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+            <div class="date"><img style="width: 35px; height: 35px; border: 0px; padding: 0px;" class="icono" src="{{ asset('images/calen.png') }}"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
             <header>
                 <h2><a href="{{ path('blogger_blog_blog_show', { 'id': blog.id }) }}">{{ blog.title|upper }}</a></h2>
             </header>
@@ -13,15 +13,27 @@
             <div class="snippet">
                 <p>{{ blog.blog(400) }} ...</p>
                 <p class="continue"><a href="{{ path('blogger_blog_blog_show', { 'id': blog.id }) }}">Continue reading...</a></p>
-            </div>
-
+           </div>        
             <footer class="meta">
                 <p>Comments: <a href="{{ path('blogger_blog_blog_show', { 'id': blog.id }) }}#comments">{{ blog.comments|length }}</a></p>
-                <p>Posted by <span class="highlight">{{blog.author}}</span> at {{ blog.created|date('h:iA') }}</p>
-                <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+                <p>Posted by <span class="highlight">{{blog.author}}</span> at {{ blog.created|date('h:iA') }} 
+                {% if blog.comments | length > 0 %} 
+                    (Ultimo post:    
+                    {% set recent = blog.comments.toArray() 
+                    [blog.comments | length -1] %}
+                    {{ recent.created | date('l, F j, Y') }}
+                    | {{ recent.user }})
+                {% endif %}
+                </p>
+                <p>Tags: <span class="highlight">
+                    {% for tags in blog.tagsCol %}                       
+                        {{ tags.tagname }} |                
+                    {% endfor %}
+                </span></p>
             </footer>
-        </article>
+        </article>     
     {% else %}
         <p>There are no blog entries for symblog</p>
     {% endfor %}
+
 {% endblock %}

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Blogger\BlogBundle\Entity\Enquiry;
 use Blogger\BlogBundle\Form\EnquiryType;
 use Symfony\Component\HttpFoundation\Request;
+use Psr\Log\LoggerInterface;
 
 
 class PageController extends Controller
@@ -13,27 +14,25 @@ class PageController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        /*$blogs = $em->createQueryBuilder()
-                    ->select('b')
-                    ->from('BloggerBlogBundle:Blog',  'b')
-                    ->addOrderBy('b.created', 'DESC')
-                    ->getQuery()
-                    ->getResult(); */
-
-        $consulta = $em->createQuery(
-        	"SELECT blog FROM BloggerBlogBundle:Blog blog 
-        	 ORDER BY blog.created DESC"
-        );
-        $blogs = $consulta->getResult();  
-
-        return $this->render('BloggerBlogBundle:Page:index.html.twig', array('blogs' => $blogs));        
+        $blogs = $em->getRepository('BloggerBlogBundle:Blog')->getLatestBlogs();
+        //$blogs = $query->getResult();
+        return $this->render('BloggerBlogBundle:Page:index.html.twig', array('blogs' => $blogs));              
     }
-
+    
 
     public function aboutAction()
     {
         return $this->render('BloggerBlogBundle:Page:about.html.twig');
+    }
+
+    public function sidebarAction()
+    {
+        $em = $this->getDoctrine()
+                   ->getManager();                   
+        $tagsweight = $em->getRepository('BloggerBlogBundle:Tag')
+                   ->getTagsCol();                      
+        return $this->render('BloggerBlogBundle:Page:sidebar.html.twig', array(
+            'tags' => $tagsweight));
     }
 
  	public function contactAction(Request $request)
