@@ -15,7 +15,7 @@ class BlogController extends Controller
     /**
      * Muestra una entrada del blog
      */
-    public function showAction($id)
+    public function showAction($id, $slug)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($id);
@@ -24,13 +24,7 @@ class BlogController extends Controller
         }
         $comments = $em->getRepository('BloggerBlogBundle:Comment')
                ->getCommentsForBlog($blog->getId());
-
-        /*'SELECT C1.blog_id, C1.id, C1.parent_id FROM comment C1
-         INNER JOIN blog C2
-         ON C1.parent_id = C2.id 
-         WHERE C1.blog_id = 1 ORDER BY C1.parent_id';*/
-         
-        setlocale(LC_ALL,"es_ES");       
+             
         return $this->render('BloggerBlogBundle:Blog:show.html.twig', array('blog' => $blog,'comments' => $comments));
     }
 

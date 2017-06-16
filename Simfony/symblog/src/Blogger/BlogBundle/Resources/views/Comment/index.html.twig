@@ -2,9 +2,8 @@
 
 {% for comment in comments %}
     <article class="comment {{ cycle(['even', 'odd'], loop.index0) }}" id="comment-{{ comment.id }}">
-        <header class="linea">
-            <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time><br>
-            <span class="location">Localització:  {{ comment.location }}</span></p>
+        <header>
+            <p><span class="highlight">{{ comment.user }}</span> commented <time datetime="{{ comment.created|date('c') }}">{{ comment.created|created_ago }}</time></p>
         </header>
         <br>
         <p>{{ comment.comment }}</p>

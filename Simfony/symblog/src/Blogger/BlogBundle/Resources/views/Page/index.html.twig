@@ -11,12 +11,12 @@
 
             <img src="{{ asset(['bundles/bloggerblog/images/', blog.image]|join) }}" />
             <div class="snippet">
-                <p>{{ blog.blog(400) }} ...</p>
+                <p>{{ blog.blog(300) }} ...</p>
                 <p class="continue"><a href="{{ path('blogger_blog_blog_show', { 'id': blog.id }) }}">Continue reading...</a></p>
            </div>        
             <footer class="meta">
                 <p>Comments: <a href="{{ path('blogger_blog_blog_show', { 'id': blog.id }) }}#comments">{{ blog.comments|length }}</a></p>
-                <p>Posted by <span class="highlight">{{blog.author}}</span> at {{ blog.created|date('h:iA') }} 
+                <p>Posted by <span class="highlight"></span> at {{ blog.created|date('h:iA') }} 
                 {% if blog.comments | length > 0 %} 
                     (Ultimo post:    
                     {% set recent = blog.comments.toArray() 
@@ -25,9 +25,9 @@
                     | {{ recent.user }})
                 {% endif %}
                 </p>
-                <p>Tags: <span class="highlight">
-                    {% for tags in blog.tagsCol %}                       
-                        {{ tags.tagname }} |                
+                <p>Tags (<span class="highlight">{{ blog.tagsCol | length }}</span>): <span class="highlight">
+                    {% for tagsCol in blog.tagsCol %}                    
+                        {{ tagsCol.tagname }}           
                     {% endfor %}
                 </span></p>
             </footer>
@@ -35,5 +35,4 @@
     {% else %}
         <p>There are no blog entries for symblog</p>
     {% endfor %}
-
 {% endblock %}

@@ -30,9 +30,17 @@ class PageController extends Controller
         $em = $this->getDoctrine()
                    ->getManager();                   
         $tagsweight = $em->getRepository('BloggerBlogBundle:Tag')
-                   ->getTagsCol();                      
-        return $this->render('BloggerBlogBundle:Page:sidebar.html.twig', array(
-            'tags' => $tagsweight));
+                   ->getTagsCol();  
+        $commentLimit   = $this->container
+                       ->getParameter('blogger_blog.comments.latest_comment_limit'); 
+        $latestComments = $em->getRepository('BloggerBlogBundle:Comment')->getLatestComments($commentLimit);
+
+        $authors =  $em->getRepository('BloggerBlogBundle:Autor')->getAuthors(50); 
+
+        return $this->render('BloggerBlogBundle:Page:sidebar.html.twig', array(          'tags' => $tagsweight,
+                            'latestComments' => $latestComments,
+                            'autors' => $authors
+                             ));                 
     }
 
  	public function contactAction(Request $request)

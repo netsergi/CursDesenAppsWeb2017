@@ -26,7 +26,8 @@ class Blog
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="Autor", inversedBy="blogs")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     protected $author;
 
@@ -34,6 +35,12 @@ class Blog
      * @ORM\Column(type="text")
      */
     protected $blog;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
 
     /**
      * @ORM\Column(type="string", length=20)
@@ -55,7 +62,6 @@ class Blog
      * @ORM\Column(type="text")
      */
     protected $tags;
-
 
     /**
      * @ORM\Column(type="datetime")
@@ -292,11 +298,11 @@ class Blog
     /**
      * Add tag
      *
-     * @param \Blogger\BlogBundle\Entity\Tags $tag
+     * @param \Blogger\BlogBundle\Entity\Tag $tag
      *
      * @return Blog
      */
-    public function addTag(\Blogger\BlogBundle\Entity\Tags $tag)
+    public function addTag(\Blogger\BlogBundle\Entity\Tag $tag)
     {
         $this->tags[] = $tag;
 
@@ -306,9 +312,9 @@ class Blog
     /**
      * Remove tag
      *
-     * @param \Blogger\BlogBundle\Entity\Tags $tag
+     * @param \Blogger\BlogBundle\Entity\Tag $tag
      */
-    public function removeTag(\Blogger\BlogBundle\Entity\Tags $tag)
+    public function removeTag(\Blogger\BlogBundle\Entity\Tag $tag)
     {
         $this->tags->removeElement($tag);
     }

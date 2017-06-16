@@ -26,7 +26,8 @@ class Blog
     protected $title;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="Autor", inversedBy="blogs")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     protected $author;
 
@@ -34,6 +35,12 @@ class Blog
      * @ORM\Column(type="text")
      */
     protected $blog;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
 
     /**
      * @ORM\Column(type="string", length=20)
@@ -112,7 +119,7 @@ class Blog
     public function setTitle($title)
     {
         $this->title = $title;
-
+        $this->setSlug($this->title);
         return $this;
     }
 
@@ -291,11 +298,11 @@ class Blog
     /**
      * Add tag
      *
-     * @param \Blogger\BlogBundle\Entity\Tags $tag
+     * @param \Blogger\BlogBundle\Entity\Tag $tag
      *
      * @return Blog
      */
-    public function addTag(\Blogger\BlogBundle\Entity\Tags $tag)
+    public function addTag(\Blogger\BlogBundle\Entity\Tag $tag)
     {
         $this->tags[] = $tag;
 
@@ -305,9 +312,9 @@ class Blog
     /**
      * Remove tag
      *
-     * @param \Blogger\BlogBundle\Entity\Tags $tag
+     * @param \Blogger\BlogBundle\Entity\Tag $tag
      */
-    public function removeTag(\Blogger\BlogBundle\Entity\Tags $tag)
+    public function removeTag(\Blogger\BlogBundle\Entity\Tag $tag)
     {
         $this->tags->removeElement($tag);
     }
@@ -344,5 +351,50 @@ class Blog
     public function getTagsCol()
     {
         return $this->tagsCol;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Blog
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $this->slugify($slug);
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function slugify($text)
+    {
+        // sustituye caracteres de espaciado o dígitos con un -
+        $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
+        // recorta espacios en ambos extremos
+        $text = trim($text, '-');
+        // translitera
+        if (function_exists('iconv'))
+        {
+            $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+        }
+        // cambia a minúsculas
+        $text = strtolower($text);
+        // elimina caracteres indeseables
+        $text = preg_replace('#[^-\w]+#', '', $text);
+        if (empty($text))
+        {
+            return 'n-a';
+        }
+        return $text;
     }
 }

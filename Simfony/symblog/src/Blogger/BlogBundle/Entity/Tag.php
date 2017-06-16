@@ -35,9 +35,7 @@ class Tag
   
     public function __construct() {
         $this->blogs = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    
+    }   
 
     /**
      * Get id

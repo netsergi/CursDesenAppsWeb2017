@@ -10,6 +10,7 @@
 .blogger-notice { text-align: center; padding: 10px; 
  background: #DFF2BF; border: 1px solid; color: #4F8A10;
   margin-bottom: 10px; }
+
 form.blogger { font-size: 16px; }
 form.blogger div { clear: left; margin-bottom: 10px; text-align: right;}
 form.blogger label { float: left; margin-right: 25px; text-align: right; width: 100px; font-weight: bold; vertical-align: top; padding-top: 10px; }
@@ -29,4 +30,11 @@ form #comment:lastchild { text-align: center; }
 .comments h3 { background: #eee; padding: 10px; font-size: 20px; margin-bottom: 20px; clear: both; }
 .comments .previous-comments { margin-bottom: 20px; }
 .linea { border-bottom: 1px solid rgba(0,0,0,0.2); }
-.location { font-size: 10px; font-style: italic; }
+.location { font-size: 12px; font-style: italic; color: green; }
+.tags { 
+		background-color: #ccffff;
+		border-radius: 10px;
+		box-shadow: 1px 1px 1px #ccc;
+		text-shadow: 1px 1px 1px #ccc;
+		padding: 10px;	
+ }
