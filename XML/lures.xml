@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<lures xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="lures.xsd">
+ <lure>
+  <lureName>Silver Spoon</lureName>
+  <lureCompany>Clark</lureCompany>
+  <lureQuantity>Seven</lureQuantity>
+ </lure>
+</lures>

@@ -18,14 +18,13 @@ BloggerBlogBundle_contact:
     requirements:
         _method:  GET
 
-blogger_blog_blog_show:
+BloggerBlogBundle_show:
     path:  /{id}
     defaults: { _controller: BloggerBlogBundle:Blog:show }
     requirements:
         _method:  GET
         id: \d+
-        _locale: es|en
-
+        
 blogger_blog_blog_create:
     path: /create
     defaults: { _controller: BloggerBlogBundle:Blog:create }

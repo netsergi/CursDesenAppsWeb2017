@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<note xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="note.xsd">
+  <to>Tove</to>
+  <from>Jani</from>
+  <date>2017-10-04</date>
+  <time>12:23:00</time> 
+  <heading>Reminder</heading>
+  <body>Don't forget me this weekend!</body>
+  <phone callback="1">545545453454</phone>
+</note>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .w3-panel { width: 600px; margin: 150px auto;height:auto;text-align: left; font-weight: bold; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<p id="demo" class="w3-panel w3-card w3-padding-16 w3-note w3-blue"></p>
+
+<script>
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            showResult(xhttp.responseXML);
+        }
+    };
+    xhttp.open("GET", "books.xml", true);
+    xhttp.send(); 
+    var txt = [];
+    var i=0;
+    function showResult(xml) {
+        
+        //path = "//book[price>30 and price<40]/title";
+        //path = "//book[@category='cooking']/title"; 
+        path = "/bookstore/book[price>30]/title[@lang='es'] | /bookstore/book[price>30 and title[@lang='es']]/price ";
+        if (xml.evaluate) {
+            var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+            var result = nodes.iterateNext();
+            document.getElementById("demo").innerHTML = "<ul>";
+            while (result) {
+                    txt [i] =  result.childNodes[0].nodeValue;
+                    document.getElementById("demo").innerHTML+= "<li>" + txt[i] + "</li>"
+                    result = nodes.iterateNext();     
+                    i++;           
+            }  
+            document.getElementById("demo").innerHTML += "</ul";  
+        }
+        //document.getElementById("demo").innerHTML = txt;
+    }
+</script>
+</body>
+</html>
