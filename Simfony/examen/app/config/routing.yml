@@ -1,0 +1,9 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+examen_productes:
+    path:  /productes
+    defaults: { _controller: AppBundle:Default:productes }
+    requirements:
+        _method:  GET

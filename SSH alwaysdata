@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.ssh { margin: 120px auto; border: 1px solid black; }
+		frame { width: 700px; height: 600px; }
+	</style>
+</head>
+<body>
+	<div class="ssh">
+		<frame src="https://ssh-netsergi.alwaysdata.net">
+	</div>
+</body>
+</html>

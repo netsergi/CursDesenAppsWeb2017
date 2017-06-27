@@ -15,5 +15,4 @@
     echo "Error deleting record: " . $conn->error;
 	}
 	header('location: SELECT QUERY.php?result="borrat"');
-
 ?>

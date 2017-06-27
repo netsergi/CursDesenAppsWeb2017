@@ -13,7 +13,7 @@
 
 		function show()
 		{
-			document.getElmentById("msg").style.display = "block";
+			document.getElementById("msg").style.display = "block";
 		}
 	</script>
 
@@ -53,6 +53,10 @@
 		if ($result->num_rows > 0) : ?>
 		   <h2> s'han trobat  <b class="w3-badge w3-green"><?php echo $result->num_rows; ?> </b> registres </h2>
 		   <br><br>
+		   	<div id="msg" style="position: fixed; margin: 0 auto;background-color: 	white;display: none;">sd sdf sdf sdf ds sdf sd sdf ds
+	sdf sdfdf sd
+	fds sdfsd 
+	fds sdfsd</div>
 		   <?php while($row = $result->fetch_assoc()): ?>
 		        <td><a target="_blank" class="w3-badge w3-green w3-xlarge" href="persona.php?id=<?php echo $row["id"];?>" onclick="window.open(this.href, this.target, 'width=800,height=500,top=200,left=150');"><?php echo $row["id"]; ?></a>
 		        </td>
@@ -63,7 +67,7 @@
 		      		<a onclick="esborrar()" id="Esborrar" href="borrar.php?id=<?php echo $row["id"];?>" class="w3-button w3-red"> Esborrar </a>
 		      		<a  id="modificar" target="_blank" href="modificar.php?id=<?php echo $row["id"];?>" class="w3-button w3-blue" onclick="window.open(this.href, this.target, 'width=650,height=400,top=200,left=150');"> Modificar </a>
 
-		      		<a  id="insertar" target="_blank" href="insertar.php?id=<?php echo $row["id"];?>" class="w3-button w3-green" onclick="show()"> Insertar </a>
+		      		<a  id="insertar" href="#" class="w3-button w3-green" onclick="show()"> Insertar </a>
 		        </td>
 		        </tr>
 		    <?php endwhile ?>
@@ -76,6 +80,5 @@
 		<div class="esborrat"><?php if (isset($_GET['result'])) echo "Registre Borrat"; ?></div>
 		<br>
 	</div>
-	<div id="msg" style="margin: 20px auto;position: absolute;background-color: 	white;display: 	none;">lll</div>
 </body>
 </html>
