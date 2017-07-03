@@ -23,8 +23,7 @@
 			    die("Connection failed: " . mysqli_connect_error());
 			}
 			
-			$sql= "SELECT * FROM MyGuests WHERE id=" . $_GET['id'];
-			echo $sql;
+			sql= "SELECT * FROM MyGuests WHERE id=" . $_GET['id'];
 			$result = $conn->query($sql); 	
 			$row = $result->fetch_assoc();
 			
@@ -39,7 +38,6 @@
 				}
 
 				$sql= "SELECT * FROM MyGuests WHERE id=" . $_GET['id'];
-				echo $sql;
 				$result = $conn->query($sql); 	
 				$row = $result->fetch_assoc();
 			}	
@@ -49,15 +47,21 @@
 			<h2 class="w3-note w3-green"> Modificar usuari </h2>
 			<br><br>			
 			<form name="modificar" action="modificar.php?id=<?php echo $row["id"];?>" method="POST">
-				<input type="text" name="id" value="<?php echo $row[id]; ?>"  style="display:none;"><img class="user" src="user.png">
-				<label for="firstname">Firstname: </label>
-				<input type="text" name="firstname" value="<?php echo $row['firstname']; ?>">
-				<br><br>
-				<label for="lastname">Lastname: </label>
-				<input type="text" name="lastname" value="<?php echo $row['lastname']; ?>">
-				<br><br>
-				<label for="email">Email: </label>
-				<input type="text" name="email" value="<?php echo $row['email']; ?>">
+					<input type="text" name="id" value="<?php echo $row[id]; ?>"  style="display:none;"><img class="user" src="user.png">
+					<table>
+					<tr>
+					<td><label for="firstname">Firstname: </label></td>
+					<td><input type="text" name="firstname" value="<?php echo $row['firstname']; ?>"></td>
+					</tr>
+					<tr>
+					<td><label for="lastname">Lastname: </label></td>
+					<td><input type="text" name="lastname" value="<?php echo $row['lastname']; ?>"></td>
+					</tr>
+					<tr>
+					<td><label for="email">Email: </label></td>
+					<td><input type="text" name="email" value="<?php echo $row['email']; ?>"></td>
+					</tr>
+				</table>
 				<br><hr>
 				<input class="w3-button w3-blue" type="submit" name="Modificar" value="Modificar">
 				<input id="btnclose" class="w3-button w3-red" type="button" name="salir" value="Tancar finestra" onclick="window.close();">

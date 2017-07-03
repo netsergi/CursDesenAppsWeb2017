@@ -4,6 +4,7 @@
 		<meta charset='utf-8'/>
 		<title>Modificar persona</title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="estilos.css">
 		<style type="text/css">
 			div { margin: 10px auto;
@@ -53,20 +54,24 @@
 			<br>			
 			<form name="modificar" action="insertar.php?" method="POST">
 				<input type="text" name="id" value="<?php echo $row[id]; ?>"  style="display:none;"><img class="user" src="useradd.png">
-				<label for="firstname">Firstname: </label>
-				<input type="text" name="firstname" value="<?php echo $row[firstname]; ?>">
-				<br><br>
-				<label for="lastname">Lastname: </label>
-				<input type="text" name="lastname" value="<?php echo $row[lastname]; ?>">
-				<br><br>
-				<label for="email">Email: </label>
-				<input type="text" name="email" value="<?php echo $row[email]; ?>">
-				<br><hr>
+				<table>
+					<tr>
+					<td><label for="firstname">Firstname: </label></td>
+					<td><input type="text" name="firstname" value="<?php echo $row[firstname]; ?>"></td>
+					</tr>
+					<tr>
+					<td><label for="lastname">Lastname: </label></td>
+					<td><input type="text" name="lastname" value="<?php echo $row[lastname]; ?>"></td>
+					</tr>
+					<tr>
+					<td><label for="email">Email: </label></td>
+					<td><input type="text" name="email" value="<?php echo $row[email]; ?>"></td>
+					</tr>
+				</table>
+				<hr>
 				<input class="w3-button w3-green" type="submit" name="insertar" value="Insertar">
 				<input id="btnclose" class="w3-button w3-red" type="button" name="salir" value="Tancar finestra" onclick="window.close();">
 			</form>
-			<br>
-			<span><?php echo $msg; ?></span>
 		</div>	
 	</body>
 </html>

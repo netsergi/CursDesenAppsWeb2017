@@ -4,20 +4,9 @@
 	<meta charset="UTF-8">
 	<title>SELECT</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="estilos.css">
-	<script type="text/javascript">
-		function esborrar()
-		{
-			return confirm('Vols esborrar? ');
-		}
-
-		function show()
-		{
-			document.getElementById("msg").style.display = "block";
-		}
-	</script>
-
-		
+	
 </head>
 <body>
 
@@ -49,15 +38,11 @@
 
 		$sql = "SELECT id, firstname, lastname, email, reg_date FROM MyGuests";
 		$result = $conn->query($sql);
-
+		
 		if ($result->num_rows > 0) : ?>
 		   <h2> s'han trobat  <b class="w3-badge w3-green"><?php echo $result->num_rows; ?> </b> registres </h2>
 		   <br><br>
-		   	<div id="msg" style="position: fixed; margin: 0 auto;background-color: 	white;display: none;">sd sdf sdf sdf ds sdf sd sdf ds
-	sdf sdfdf sd
-	fds sdfsd 
-	fds sdfsd</div>
-		   <?php while($row = $result->fetch_assoc()): ?>
+		 <?php while($row = $result->fetch_assoc()): ?>
 		        <td><a target="_blank" class="w3-badge w3-green w3-xlarge" href="persona.php?id=<?php echo $row["id"];?>" onclick="window.open(this.href, this.target, 'width=800,height=500,top=200,left=150');"><?php echo $row["id"]; ?></a>
 		        </td>
 		        <td><?php echo $row["firstname"]; ?></td>
@@ -80,5 +65,15 @@
 		<div class="esborrat"><?php if (isset($_GET['result'])) echo "Registre Borrat"; ?></div>
 		<br>
 	</div>
+	<div class="ventana"><iframe id="ifrins" src="#"></iframe></div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+   			$(".ventana").hide();   			
+		});
+		function show()
+   			{
+   				$(".ventana").show();
+   			}
+	</script>	
 </body>
 </html>

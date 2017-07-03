@@ -34,3 +34,15 @@ caption { font-weight: bold;
 
 		a { text-decoration: none;
 			margin-right: 10px; }
+
+		.ventana {
+			position: absolute;
+			margin: = auto;
+			width: 400px;
+			height: 100px;
+			min-height: 100px;
+			display: none;
+		}
+		iframe { display: none; }
+
+		input[type="text"] { float: right; }
