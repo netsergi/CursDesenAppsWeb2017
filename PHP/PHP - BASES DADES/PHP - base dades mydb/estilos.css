@@ -35,14 +35,14 @@ caption { font-weight: bold;
 		a { text-decoration: none;
 			margin-right: 10px; }
 
-		.ventana {
+		#ventana {
 			position: absolute;
 			margin: = auto;
 			width: 400px;
 			height: 100px;
-			min-height: 100px;
-			display: none;
-		}
-		iframe { display: none; }
+			min-height: 100px; 
+			z-index: 4;}
+
+		iframe { width: 400; height: 300px; }
 
 		input[type="text"] { float: right; }
