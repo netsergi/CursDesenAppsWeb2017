@@ -51,7 +51,6 @@
 		        <td>
 		      		<a onclick="esborrar()" id="Esborrar" href="borrar.php?id=<?php echo $row["id"];?>" class="w3-button w3-red"> Esborrar </a>
 		      		<a  id="modificar" target="_blank" href="modificar.php?id=<?php echo $row["id"];?>" class="w3-button w3-blue" onclick="window.open(this.href, this.target, 'width=650,height=400,top=200,left=150');"> Modificar </a>
-
 		      		<a  id="insertar" href="#" class="w3-button w3-green"> Insertar </a>
 		        </td>
 		        </tr>
@@ -65,16 +64,17 @@
 		<div class="esborrat"><?php if (isset($_GET['result'])) echo "Registre Borrat"; ?></div>
 		<br>
 	</div>
-	<div id="ventana">hhhhhhh</div>
+	<div class="ventana">hhhhhhh</div>
 	<script type="text/javascript">
-	
-   			$("#ventana").hide();
-   			$("#insertar").click(function(){
-   				$("#ventana").show();
-   				alert("hola");
-   			});
-	
-		
+		$(document).ready(function(){
+			$(".ventana").hide();
+   			$("td a:last-child").click(function(){
+  				$(".ventana").show();
+			});
+			$(".ventana").click(function(){
+				$(".ventana").hide();
+			});
+   		});		
 	</script>	
 </body>
 </html>
